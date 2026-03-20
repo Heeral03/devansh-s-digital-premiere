@@ -6,20 +6,24 @@ import GallerySection from "@/components/GallerySection";
 import AboutSection from "@/components/AboutSection";
 import ContactSection from "@/components/ContactSection";
 import FilmGrain from "@/components/FilmGrain";
-import SpotlightCursor from "@/components/SpotlightCursor";
+import CinematicCursor from "@/components/CinematicCursor";
+import AmbientBackground from "@/components/AmbientBackground";
 
 const Index = () => {
   return (
     <div className="bg-background min-h-screen overflow-x-hidden">
+      <AmbientBackground />
       <FilmGrain />
-      <SpotlightCursor />
+      <CinematicCursor />
       <Navbar />
-      <HeroSection />
-      <ShowreelSection />
-      <WorksSection />
-      <GallerySection />
-      <AboutSection />
-      <ContactSection />
+      <main className="relative z-[1]">
+        <HeroSection />
+        <ShowreelSection />
+        <WorksSection />
+        <GallerySection />
+        <AboutSection />
+        <ContactSection />
+      </main>
     </div>
   );
 };
