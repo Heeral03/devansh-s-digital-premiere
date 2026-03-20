@@ -12,7 +12,7 @@ const AboutSection = () => {
   const textY = useTransform(scrollYProgress, [0, 1], [15, -15]);
 
   return (
-    <section id="about" className="relative py-28 md:py-36 overflow-hidden" ref={ref}>
+    <section id="about" className="relative py-20 md:py-28 overflow-hidden" ref={ref}>
       <div className="absolute inset-0 bg-gradient-to-b from-background via-secondary/10 to-background" />
 
       <div className="relative z-10 max-w-6xl mx-auto px-6 md:px-12">

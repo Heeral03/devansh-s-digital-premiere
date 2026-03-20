@@ -125,7 +125,7 @@ const WorksSection = () => {
   const [selected, setSelected] = useState<number | null>(null);
 
   return (
-    <section id="works" className="relative py-28 md:py-36" ref={ref}>
+    <section id="works" className="relative py-20 md:py-28" ref={ref}>
       <div className="absolute inset-0 bg-gradient-to-b from-background via-secondary/20 to-background" />
 
       <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-12">

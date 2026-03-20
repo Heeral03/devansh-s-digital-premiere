@@ -28,7 +28,7 @@ const ShowreelSection = () => {
   };
 
   return (
-    <section id="showreel" className="relative py-28 md:py-36 cinematic-gradient" ref={ref}>
+    <section id="showreel" className="relative py-20 md:py-28 cinematic-gradient" ref={ref}>
       <div className="absolute inset-0 spotlight-gradient opacity-50" />
 
       <div className="relative z-10 max-w-6xl mx-auto px-6 md:px-12">

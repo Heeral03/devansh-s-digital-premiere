@@ -35,7 +35,7 @@ const GallerySection = () => {
   };
 
   return (
-    <section id="gallery" className="relative py-28 md:py-36 cinematic-gradient" ref={ref}>
+    <section id="gallery" className="relative py-20 md:py-28 cinematic-gradient" ref={ref}>
       <div className="relative z-10">
         <div className="max-w-7xl mx-auto px-6 md:px-12">
           <CinematicReveal>
