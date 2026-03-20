@@ -24,7 +24,7 @@ const ContactSection = () => {
     }`;
 
   return (
-    <section id="contact" className="relative py-24 md:py-40 cinematic-gradient" ref={ref}>
+    <section id="contact" className="relative py-20 md:py-28 cinematic-gradient" ref={ref}>
       <div className="absolute inset-0 spotlight-gradient opacity-30" />
 
       <div className="relative z-10 max-w-4xl mx-auto px-6 md:px-12">

@@ -12,8 +12,8 @@ const ShowreelSection = () => {
 
   const mx = useMotionValue(0);
   const my = useMotionValue(0);
-  const rotateX = useSpring(useTransform(my, [-0.5, 0.5], [4, -4]), { stiffness: 200, damping: 30 });
-  const rotateY = useSpring(useTransform(mx, [-0.5, 0.5], [-4, 4]), { stiffness: 200, damping: 30 });
+  const rotateX = useSpring(useTransform(my, [-0.5, 0.5], [3, -3]), { stiffness: 200, damping: 30 });
+  const rotateY = useSpring(useTransform(mx, [-0.5, 0.5], [-3, 3]), { stiffness: 200, damping: 30 });
 
   const handleMouse = (e: MouseEvent<HTMLDivElement>) => {
     const rect = e.currentTarget.getBoundingClientRect();
@@ -28,7 +28,7 @@ const ShowreelSection = () => {
   };
 
   return (
-    <section id="showreel" className="relative py-24 md:py-40 cinematic-gradient" ref={ref}>
+    <section id="showreel" className="relative py-20 md:py-28 cinematic-gradient" ref={ref}>
       <div className="absolute inset-0 spotlight-gradient opacity-50" />
 
       <div className="relative z-10 max-w-6xl mx-auto px-6 md:px-12">
@@ -40,14 +40,14 @@ const ShowreelSection = () => {
 
         <AnimatedHeading
           text="Showreel — Do Watch This"
-          className="font-display text-3xl md:text-5xl lg:text-6xl text-ivory mb-16 leading-tight"
+          className="font-display text-3xl md:text-5xl lg:text-6xl text-ivory mb-14 leading-tight"
           delay={0.1}
         />
 
         <motion.div
-          initial={{ opacity: 0, scale: 0.94, filter: "blur(12px)" }}
-          animate={inView ? { opacity: 1, scale: 1, filter: "blur(0px)" } : {}}
-          transition={{ duration: 1.2, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
+          initial={{ opacity: 0, y: 30 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 1, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
           style={{ perspective: 1000 }}
         >
           <motion.div
@@ -63,38 +63,29 @@ const ShowreelSection = () => {
                 src={showreelBg}
                 alt="Showreel preview"
                 className="w-full h-full object-cover"
-                animate={{ scale: hovering ? 1.08 : 1 }}
+                animate={{ scale: hovering ? 1.06 : 1 }}
                 transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
               />
               <motion.div
                 className="absolute inset-0"
-                animate={{ backgroundColor: hovering ? "hsla(0, 0%, 4%, 0.15)" : "hsla(0, 0%, 4%, 0.45)" }}
+                animate={{ backgroundColor: hovering ? "hsla(0, 0%, 4%, 0.2)" : "hsla(0, 0%, 4%, 0.45)" }}
                 transition={{ duration: 0.5 }}
               />
 
-              {/* Play button with pulse */}
+              {/* Play button */}
               <div className="absolute inset-0 flex items-center justify-center">
                 <motion.div
                   className="relative"
-                  animate={hovering ? { scale: 1.1 } : { scale: 1 }}
+                  animate={hovering ? { scale: 1.08 } : { scale: 1 }}
                   transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
                 >
-                  {/* Pulse rings */}
                   {hovering && (
-                    <>
-                      <motion.div
-                        className="absolute inset-0 rounded-full border border-gold/30"
-                        initial={{ scale: 1, opacity: 0.5 }}
-                        animate={{ scale: 1.8, opacity: 0 }}
-                        transition={{ duration: 1.5, repeat: Infinity, ease: "easeOut" }}
-                      />
-                      <motion.div
-                        className="absolute inset-0 rounded-full border border-gold/20"
-                        initial={{ scale: 1, opacity: 0.4 }}
-                        animate={{ scale: 2.2, opacity: 0 }}
-                        transition={{ duration: 1.5, repeat: Infinity, ease: "easeOut", delay: 0.3 }}
-                      />
-                    </>
+                    <motion.div
+                      className="absolute inset-0 rounded-full border border-gold/30"
+                      initial={{ scale: 1, opacity: 0.5 }}
+                      animate={{ scale: 2, opacity: 0 }}
+                      transition={{ duration: 1.5, repeat: Infinity, ease: "easeOut" }}
+                    />
                   )}
                   <div className="w-20 h-20 md:w-24 md:h-24 rounded-full border-2 border-gold/60 flex items-center justify-center bg-background/20 group-active:scale-95 transition-transform">
                     <Play className="w-8 h-8 md:w-10 md:h-10 text-gold ml-1" />
@@ -103,16 +94,11 @@ const ShowreelSection = () => {
               </div>
             </div>
 
-            {/* Info bar */}
-            <motion.div
-              className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-background/90 to-transparent"
-              animate={{ y: hovering ? 0 : 8, opacity: hovering ? 1 : 0.7 }}
-              transition={{ duration: 0.4 }}
-            >
+            <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-background/90 to-transparent">
               <p className="font-body text-xs tracking-[0.3em] uppercase text-gold/70">
                 Acting Reel 2025
               </p>
-            </motion.div>
+            </div>
           </motion.div>
         </motion.div>
       </div>

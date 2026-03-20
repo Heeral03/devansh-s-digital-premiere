@@ -17,10 +17,10 @@ const CinematicReveal = ({
   blur = true,
 }: RevealProps) => {
   const ref = useRef(null);
-  const inView = useInView(ref, { once: true, amount: 0.2 });
+  const inView = useInView(ref, { once: true, amount: 0.05 });
 
   const dirMap = {
-    up: { y: 40, x: 0 },
+    up: { y: 24, x: 0 },
     left: { y: 0, x: -50 },
     right: { y: 0, x: 50 },
     none: { y: 0, x: 0 },
