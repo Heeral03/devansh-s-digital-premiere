@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState, useCallback } from "react";
 import { motion } from "framer-motion";
 import { Play } from "lucide-react";
-import heroBg from "@/assets/hero-bg.jpg";
+import heroBg from "@/assets/devansh-hero.jpg";
 
 // Interactive spotlight canvas overlay
 const SpotlightOverlay = ({ mousePos }: { mousePos: { x: number; y: number } }) => {
