@@ -39,12 +39,11 @@ const works = [
   },
 ];
 
-// 3D Tilt Card
 const TiltCard = ({ work, index, onSelect, inView }: { work: typeof works[0]; index: number; onSelect: () => void; inView: boolean }) => {
   const mx = useMotionValue(0);
   const my = useMotionValue(0);
-  const rotateX = useSpring(useTransform(my, [-0.5, 0.5], [8, -8]), { stiffness: 200, damping: 25 });
-  const rotateY = useSpring(useTransform(mx, [-0.5, 0.5], [-8, 8]), { stiffness: 200, damping: 25 });
+  const rotateX = useSpring(useTransform(my, [-0.5, 0.5], [6, -6]), { stiffness: 200, damping: 25 });
+  const rotateY = useSpring(useTransform(mx, [-0.5, 0.5], [-6, 6]), { stiffness: 200, damping: 25 });
   const [hovered, setHovered] = useState(false);
 
   const handleMouse = (e: MouseEvent<HTMLDivElement>) => {
@@ -53,17 +52,13 @@ const TiltCard = ({ work, index, onSelect, inView }: { work: typeof works[0]; in
     my.set((e.clientY - rect.top) / rect.height - 0.5);
   };
 
-  const handleLeave = () => {
-    mx.set(0);
-    my.set(0);
-    setHovered(false);
-  };
+  const handleLeave = () => { mx.set(0); my.set(0); setHovered(false); };
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: 50, filter: "blur(10px)" }}
-      animate={inView ? { opacity: 1, y: 0, filter: "blur(0px)" } : {}}
-      transition={{ duration: 0.8, delay: 0.2 + index * 0.15, ease: [0.16, 1, 0.3, 1] }}
+      initial={{ opacity: 0, y: 40 }}
+      animate={inView ? { opacity: 1, y: 0 } : {}}
+      transition={{ duration: 0.7, delay: 0.15 + index * 0.12, ease: [0.16, 1, 0.3, 1] }}
       style={{ perspective: 800 }}
     >
       <motion.div
@@ -80,28 +75,18 @@ const TiltCard = ({ work, index, onSelect, inView }: { work: typeof works[0]; in
             src={work.image}
             alt={work.title}
             className="w-full h-full object-cover"
-            animate={{ scale: hovered ? 1.12 : 1 }}
+            animate={{ scale: hovered ? 1.1 : 1 }}
             transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
             loading="lazy"
           />
-          {/* Overlay that shifts on hover */}
-          <motion.div
-            className="absolute inset-0"
-            animate={{
-              background: hovered
-                ? "linear-gradient(180deg, hsla(0,0%,4%,0.1) 0%, hsla(0,0%,4%,0.75) 100%)"
-                : "linear-gradient(180deg, hsla(0,0%,4%,0.2) 0%, hsla(0,0%,4%,0.85) 100%)",
-            }}
-            transition={{ duration: 0.5 }}
-          />
+          <div className="absolute inset-0 bg-gradient-to-t from-background via-background/30 to-transparent" />
 
-          {/* Shine effect on hover */}
           {hovered && (
             <motion.div
               className="absolute inset-0"
               initial={{ x: "-100%", opacity: 0 }}
-              animate={{ x: "100%", opacity: 0.08 }}
-              transition={{ duration: 0.8, ease: "easeInOut" }}
+              animate={{ x: "100%", opacity: 0.06 }}
+              transition={{ duration: 0.7, ease: "easeInOut" }}
               style={{
                 background: "linear-gradient(90deg, transparent, hsla(43, 60%, 70%, 1), transparent)",
                 width: "50%",
@@ -111,33 +96,18 @@ const TiltCard = ({ work, index, onSelect, inView }: { work: typeof works[0]; in
         </div>
 
         <div className="absolute bottom-0 left-0 right-0 p-6">
-          <motion.span
-            className="font-body text-[10px] tracking-[0.3em] uppercase text-gold/70 mb-2 block"
-            animate={{ x: hovered ? 4 : 0 }}
-            transition={{ duration: 0.3 }}
-          >
+          <span className="font-body text-[10px] tracking-[0.3em] uppercase text-gold/70 mb-2 block">
             {work.type}
-          </motion.span>
-          <motion.h3
-            className="font-display text-xl md:text-2xl text-ivory"
-            animate={{ x: hovered ? 4 : 0, color: hovered ? "hsl(43, 60%, 55%)" : "hsl(38, 40%, 92%)" }}
-            transition={{ duration: 0.3 }}
-          >
+          </span>
+          <h3 className={`font-display text-xl md:text-2xl transition-colors duration-300 ${hovered ? "text-gold" : "text-ivory"}`}>
             {work.title}
-          </motion.h3>
-          <motion.p
-            className="font-body text-xs text-muted-foreground mt-1"
-            animate={{ x: hovered ? 4 : 0, opacity: hovered ? 1 : 0.7 }}
-            transition={{ duration: 0.3 }}
-          >
-            {work.role}
-          </motion.p>
+          </h3>
+          <p className="font-body text-xs text-muted-foreground mt-1">{work.role}</p>
         </div>
 
-        {/* Play icon */}
         <motion.div
           className="absolute top-4 right-4"
-          animate={{ opacity: hovered ? 1 : 0, scale: hovered ? 1 : 0.5 }}
+          animate={{ opacity: hovered ? 1 : 0, scale: hovered ? 1 : 0.6 }}
           transition={{ duration: 0.3 }}
         >
           <div className="w-10 h-10 rounded-full border border-gold/50 flex items-center justify-center bg-background/50">
@@ -155,7 +125,7 @@ const WorksSection = () => {
   const [selected, setSelected] = useState<number | null>(null);
 
   return (
-    <section id="works" className="relative py-24 md:py-40" ref={ref}>
+    <section id="works" className="relative py-28 md:py-36" ref={ref}>
       <div className="absolute inset-0 bg-gradient-to-b from-background via-secondary/20 to-background" />
 
       <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-12">
@@ -167,40 +137,33 @@ const WorksSection = () => {
 
         <AnimatedHeading
           text="Works & Performances"
-          className="font-display text-3xl md:text-5xl lg:text-6xl text-ivory mb-16 leading-tight"
+          className="font-display text-3xl md:text-5xl lg:text-6xl text-ivory mb-14 leading-tight"
           delay={0.1}
         />
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
           {works.map((work, i) => (
-            <TiltCard
-              key={work.title}
-              work={work}
-              index={i}
-              inView={inView}
-              onSelect={() => setSelected(i)}
-            />
+            <TiltCard key={work.title} work={work} index={i} inView={inView} onSelect={() => setSelected(i)} />
           ))}
         </div>
       </div>
 
-      {/* Modal */}
       <AnimatePresence>
         {selected !== null && (
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 0.4 }}
+            transition={{ duration: 0.3 }}
             className="fixed inset-0 z-50 flex items-center justify-center p-6"
             style={{ backgroundColor: "hsla(0, 0%, 4%, 0.92)" }}
             onClick={() => setSelected(null)}
           >
             <motion.div
-              initial={{ scale: 0.88, opacity: 0, y: 30, filter: "blur(10px)" }}
-              animate={{ scale: 1, opacity: 1, y: 0, filter: "blur(0px)" }}
-              exit={{ scale: 0.88, opacity: 0, y: 30, filter: "blur(10px)" }}
-              transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+              initial={{ scale: 0.9, opacity: 0, y: 20 }}
+              animate={{ scale: 1, opacity: 1, y: 0 }}
+              exit={{ scale: 0.9, opacity: 0, y: 20 }}
+              transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
               className="relative max-w-3xl w-full bg-card border border-border/40 rounded-lg overflow-hidden"
               onClick={(e) => e.stopPropagation()}
             >
@@ -212,18 +175,13 @@ const WorksSection = () => {
               </button>
 
               <div className="aspect-video relative overflow-hidden">
-                <motion.img
-                  src={works[selected].image}
-                  alt={works[selected].title}
-                  className="w-full h-full object-cover"
-                  layoutId={`work-${selected}`}
-                />
+                <img src={works[selected].image} alt={works[selected].title} className="w-full h-full object-cover" />
                 <div className="absolute inset-0 bg-gradient-to-t from-card via-transparent to-transparent" />
                 <div className="absolute inset-0 flex items-center justify-center">
                   <motion.div
                     initial={{ scale: 0.5, opacity: 0 }}
                     animate={{ scale: 1, opacity: 1 }}
-                    transition={{ delay: 0.3, duration: 0.5 }}
+                    transition={{ delay: 0.2 }}
                     className="w-16 h-16 rounded-full border-2 border-gold/60 flex items-center justify-center bg-background/30 cursor-pointer hover:bg-gold/10 transition-all active:scale-95"
                   >
                     <Play className="w-6 h-6 text-gold ml-0.5" />
@@ -231,22 +189,13 @@ const WorksSection = () => {
                 </div>
               </div>
 
-              <motion.div
-                className="p-8"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.2, duration: 0.5 }}
-              >
+              <div className="p-8">
                 <span className="font-body text-[10px] tracking-[0.3em] uppercase text-gold/70 mb-2 block">
                   {works[selected].type} · {works[selected].role}
                 </span>
-                <h3 className="font-display text-2xl md:text-3xl text-ivory mb-4">
-                  {works[selected].title}
-                </h3>
-                <p className="font-body text-sm text-muted-foreground leading-relaxed">
-                  {works[selected].description}
-                </p>
-              </motion.div>
+                <h3 className="font-display text-2xl md:text-3xl text-ivory mb-4">{works[selected].title}</h3>
+                <p className="font-body text-sm text-muted-foreground leading-relaxed">{works[selected].description}</p>
+              </div>
             </motion.div>
           </motion.div>
         )}

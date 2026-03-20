@@ -7,12 +7,10 @@ import AboutSection from "@/components/AboutSection";
 import ContactSection from "@/components/ContactSection";
 import FilmGrain from "@/components/FilmGrain";
 import CinematicCursor from "@/components/CinematicCursor";
-import AmbientBackground from "@/components/AmbientBackground";
 
 const Index = () => {
   return (
     <div className="bg-background min-h-screen overflow-x-hidden">
-      <AmbientBackground />
       <FilmGrain />
       <CinematicCursor />
       <Navbar />
