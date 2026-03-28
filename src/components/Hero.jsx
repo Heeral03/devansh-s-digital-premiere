@@ -8,7 +8,7 @@ const Hero = () => {
   const [loopNum, setLoopNum] = useState(0);
   const [typingSpeed, setTypingSpeed] = useState(100);
 
-  const words = ['an Actor.', 'a Performer.', 'a Storyteller.'];
+  const words = ['an Actor.', 'a Performer.', 'an Artist.'];
 
   useEffect(() => {
     let timer = setTimeout(() => {
@@ -43,7 +43,7 @@ const Hero = () => {
   return (
     <section id="hero" className="hero-section">
       <div className="hero-overlay"></div>
-      
+
       <div className="hero-content z-10">
         <p className="hero-pretitle fade-up"></p>
         <h1 className="hero-title fade-up" style={{ transitionDelay: '0.1s' }}>
@@ -55,20 +55,20 @@ const Hero = () => {
         </p>
         <div className="hero-cta fade-up" style={{ transitionDelay: '0.3s' }}>
           <button onClick={() => setShowReel(true)} className="btn btn-primary">
-            Watch Showreel
+            Introduction Video
           </button>
         </div>
       </div>
-      
+
       <div className="hero-visual z-0 fade-up">
-        <img 
-          src="/devansh/Headshots/hero.jpeg" 
-          alt="Devansh Pareek" 
+        <img
+          src="/devansh/Headshots/hero.jpeg"
+          alt="Devansh Pareek"
           className="hero-image"
         />
         <div className="hero-gradient"></div>
       </div>
-      
+
       <div className="scroll-indicator fade-up" style={{ transitionDelay: '0.6s' }}>
         <span>Scroll to Explore</span>
         <div className="scroll-line"></div>

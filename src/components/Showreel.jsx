@@ -7,7 +7,7 @@ const Showreel = () => {
       <div className="showreel-container">
         
         <div className="showreel-text fade-up">
-          <h2 className="showreel-title">THE SHOWREEL</h2>
+          <h2 className="showreel-title">Introduction Video</h2>
           <p className="showreel-desc">
             A montage of moments. No filters, no safety nets. Just truth in performance.
           </p>

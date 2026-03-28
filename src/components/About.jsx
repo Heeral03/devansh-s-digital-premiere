@@ -34,24 +34,6 @@ const About = () => {
               </p>
             </div>
 
-            <div className="skills-grid">
-              <div className="skill-item">
-                <span className="skill-num">01</span>
-                <span className="skill-name">Method Acting</span>
-              </div>
-              <div className="skill-item">
-                <span className="skill-num">02</span>
-                <span className="skill-name">Stage Play</span>
-              </div>
-              <div className="skill-item">
-                <span className="skill-num">03</span>
-                <span className="skill-name">Mime & Movement</span>
-              </div>
-              <div className="skill-item">
-                <span className="skill-num">04</span>
-                <span className="skill-name">Direction</span>
-              </div>
-            </div>
           </div>
         </div>
 

@@ -3,7 +3,7 @@ import './Headshots.css';
 
 const Headshots = () => {
   const images = [
-    { src: '/devansh/Headshots/Trek.jpeg' },
+    
     { src: '/devansh/Headshots/FK003970.JPG' },
     { src: '/devansh/Headshots/1000082892.jpg' },
     { src: '/devansh/Headshots/IMG_3527.JPG' },
@@ -11,7 +11,8 @@ const Headshots = () => {
     { src: '/devansh/Headshots/97B90BB3-6ED8-4544-8F15-57A76DCD275A_1_105_c.jpeg' },
     { src: '/devansh/Headshots/Trek2.jpeg'},
     { src: '/devansh/Headshots/Viva1.jpeg'},
-    { src: '/devansh/Headshots/Plinth1.jpeg'}
+    { src: '/devansh/Headshots/Plinth1.jpeg'},
+    { src: '/devansh/Headshots/Trek.jpeg' },
   ];
 
   return (
