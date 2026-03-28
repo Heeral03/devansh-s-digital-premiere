@@ -1,0 +1,58 @@
+.reels-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 4rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.reel-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.reel-meta {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--text-primary);
+  margin-bottom: 2rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.reel-num {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  color: var(--text-muted);
+}
+
+.reel-embed {
+  min-height: 500px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  background: transparent;
+  padding-top: 1rem;
+}
+
+/* Hide native IG border */
+.reel-embed blockquote {
+  width: 100% !important;
+  max-width: 100% !important;
+  border: none !important;
+  border-radius: 8px;
+  margin: 0 !important;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.5) !important;
+}
+
+@media (max-width: 768px) {
+  .reels-grid {
+    grid-template-columns: 1fr;
+    gap: 6rem;
+  }
+}

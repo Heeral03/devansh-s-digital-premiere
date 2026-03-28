@@ -1,0 +1,81 @@
+.section-header {
+  margin-bottom: 6rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+/* ── Masonry grid ── */
+.headshot-grid {
+  column-count: 3;
+  column-gap: 1.5rem;
+  width: 100%;
+  box-sizing: border-box;  
+}
+
+.headshot-card {
+  break-inside: avoid;        /* Prevents column breaks mid-card */
+  page-break-inside: avoid;   /* Legacy Safari fallback */
+  display: inline-block;      /* ← KEY FIX: makes column layout honour break-inside correctly */
+  width: 100%;
+  margin-bottom: 1.5rem;
+   box-sizing: border-box;   
+  position: relative;
+  overflow: hidden;
+  background: var(--bg-secondary);
+}
+
+.headshot-card img {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  display: block;
+  object-fit: contain;        /* ← prevents overflow if image is wider than column */
+  transition: transform 1.2s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.headshot-card:hover img {
+  transform: scale(1.04);
+}
+
+/* ── Overlay ── */
+.headshot-overlay {
+  position: absolute;
+  inset: 0;                   /* Shorthand for top/right/bottom/left: 0 */
+  background: linear-gradient(
+    180deg,
+    rgba(8, 10, 8, 0) 60%,
+    rgba(8, 10, 8, 0.9) 100%
+  );
+  display: flex;
+  align-items: flex-end;
+  padding: 2rem;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.headshot-card:hover .headshot-overlay {
+  opacity: 1;
+}
+
+.portrait-num {
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  letter-spacing: 2px;
+  color: var(--text-primary);
+  text-transform: uppercase;
+}
+
+/* ── Responsive ── */
+@media (max-width: 1024px) {
+  .headshot-grid {
+    column-count: 2;
+  }
+}
+
+@media (max-width: 600px) {
+  .headshot-grid {
+    column-count: 1;
+  }
+}
