@@ -4,9 +4,9 @@ import Hero from './components/Hero';
 import About from './components/About';
 import Showreel from './components/Showreel';
 import Headshots from './components/Headshots';
+import FilmsReels from './components/FilmsReels';
 import Work from './components/Work';
 import Gallery from './components/Gallery';
-import Reels from './components/Reels';
 import Contact from './components/Contact';
 
 function App() {
@@ -34,9 +34,9 @@ function App() {
         <About />
         <Showreel />
         <Headshots />
+        <FilmsReels />
         <Work />
         <Gallery />
-        <Reels />
       </main>
       <Contact />
     </div>

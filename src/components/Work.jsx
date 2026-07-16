@@ -19,28 +19,6 @@ const Work = () => {
             Theatre is a living, breathing entity. The energy exchanged in the room cannot be faked.
           </p>
         </div>
-        
-        <div className="spotlight-feature fade-up">
-          <div className="spotlight-info">
-            <div className="spotlight-badge">FEATURED PERFORMANCE</div>
-            <h3 className="spotlight-title">HAMLET</h3>
-            <p className="spotlight-desc">
-              "To be, or not to be..." Stripping away the theatricality to find the quiet, terrifying truth inside the prince's mind.
-            </p>
-          </div>
-          
-          <div className="spotlight-video">
-            <div className="video-wrapper">
-              <iframe
-                src="https://www.youtube.com/embed/3g3MioCVho8?controls=0"
-                title="Hamlet Performance"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-                loading="lazy"
-              ></iframe>
-            </div>
-          </div>
-        </div>
 
         <div className="video-grid">
           {videos.map((vid, idx) => (

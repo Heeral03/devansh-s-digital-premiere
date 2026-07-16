@@ -17,7 +17,7 @@ const About = () => {
 
           <div className="about-text-col fade-up" style={{ transitionDelay: '0.2s' }}>
             <h2 className="section-title">
-              THE ACTOR'S<br />TRUTH
+              About Me
             </h2>
 
             <div className="about-body">

@@ -1,0 +1,219 @@
+/* ── Section ──────────────────────────────────────────────── */
+.films-section {
+  padding: 10rem 0 12rem;
+  background-color: var(--bg-secondary, #0a0a0a);
+  border-top: 1px solid var(--border-color);
+  border-bottom: 1px solid var(--border-color);
+  position: relative;
+  overflow: hidden;
+}
+
+.films-ambient {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 60% 40% at 50% 10%, rgba(160,120,60,0.07) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+/* ── YouTube Films Grid ───────────────────────────────────── */
+.films-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 3.5rem;
+  margin-bottom: 6rem;
+}
+
+.film-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.film-meta {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  font-family: var(--font-mono, monospace);
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+  margin-bottom: 1.4rem;
+  padding-bottom: 1.2rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.film-num {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  font-style: italic;
+  color: var(--text-muted, rgba(255,255,255,0.25));
+  line-height: 1;
+}
+
+.film-tag {
+  border: 1px solid var(--border-color);
+  padding: 0.18em 0.6em;
+  border-radius: 2px;
+  font-size: 0.65rem;
+  letter-spacing: 0.14em;
+  opacity: 0.6;
+}
+
+/* Video wrapper */
+.film-video-wrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: #000;
+  border: 1px solid var(--border-color);
+  border-radius: 3px;
+  overflow: hidden;
+  box-shadow: 0 30px 80px rgba(0,0,0,0.75);
+  transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.film-video-wrapper:hover {
+  transform: scale(1.015);
+}
+
+.film-video-wrapper iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+/* Cinematic corner markers */
+.fc {
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  border-style: solid;
+  border-color: rgba(255,255,255,0.25);
+  border-width: 0;
+  z-index: 5;
+  pointer-events: none;
+}
+.fc.tl { top: 8px;    left: 8px;   border-top-width: 1px; border-left-width: 1px; }
+.fc.tr { top: 8px;    right: 8px;  border-top-width: 1px; border-right-width: 1px; }
+.fc.bl { bottom: 8px; left: 8px;   border-bottom-width: 1px; border-left-width: 1px; }
+.fc.br { bottom: 8px; right: 8px;  border-bottom-width: 1px; border-right-width: 1px; }
+
+/* Film info */
+.film-info {
+  padding: 1.6rem 0 0;
+}
+
+.film-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.4rem, 2.5vw, 2rem);
+  font-weight: 500;
+  color: var(--text-primary);
+  letter-spacing: -0.5px;
+  margin-bottom: 0.6rem;
+}
+
+.film-desc {
+  font-family: var(--font-serif);
+  font-size: 1rem;
+  font-style: italic;
+  color: var(--text-secondary);
+  font-weight: 300;
+  line-height: 1.75;
+  max-width: 480px;
+}
+
+/* ── Divider ──────────────────────────────────────────────── */
+.films-divider {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin-bottom: 4rem;
+}
+
+.films-divider::before,
+.films-divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--border-color);
+}
+
+.films-divider-label {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.68rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+  opacity: 0.5;
+  white-space: nowrap;
+}
+
+/* ── Instagram Reels Grid (from old Reels.css) ────────────── */
+.reels-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 4rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.reel-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.reel-meta {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  font-family: var(--font-sans, sans-serif);
+  font-size: 0.8rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--text-primary);
+  margin-bottom: 2rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.reel-num {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  color: var(--text-muted, rgba(255,255,255,0.25));
+}
+
+.reel-embed {
+  min-height: 500px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  background: transparent;
+  padding-top: 1rem;
+}
+
+.reel-embed blockquote {
+  width: 100% !important;
+  max-width: 100% !important;
+  border: none !important;
+  border-radius: 8px;
+  margin: 0 !important;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.5) !important;
+}
+
+/* ── Responsive ───────────────────────────────────────────── */
+@media (max-width: 900px) {
+  .films-grid {
+    grid-template-columns: 1fr;
+    gap: 5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .reels-grid {
+    grid-template-columns: 1fr;
+    gap: 6rem;
+  }
+}

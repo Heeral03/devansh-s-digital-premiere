@@ -29,9 +29,9 @@ const Navbar = () => {
     { name: 'Home', href: '#hero' },
     { name: 'About', href: '#about' },
     { name: 'Portraits', href: '#headshots' },
+    { name: 'Films', href: '#films' },
     { name: 'Stage', href: '#work' },
     { name: 'Gallery', href: '#gallery' },
-    { name: 'Reels', href: '#reels' },
     { name: 'Contact', href: '#contact' }
   ];
 
